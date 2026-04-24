@@ -1,0 +1,359 @@
+2026-04-22 17:39:08,187 - INFO - Starting SCM automation script
+2026-04-22 17:40:19,307 - INFO - Starting SCM automation script
+2026-04-22 17:41:01,052 - INFO - Starting SCM automation script
+2026-04-22 17:42:02,820 - INFO - Starting SCM automation script
+2026-04-22 17:44:02,339 - INFO - Starting SCM automation script
+2026-04-22 17:45:42,544 - INFO - Unable to retrieve current parameter values
+2026-04-22 17:48:30,685 - INFO - Starting SCM automation script
+2026-04-22 17:50:11,009 - INFO - Unable to retrieve current parameter values
+2026-04-22 17:53:43,010 - INFO - Starting SCM automation script
+2026-04-22 17:56:37,795 - INFO - Starting SCM automation script
+2026-04-22 17:58:15,526 - INFO - Unable to retrieve current parameter values
+2026-04-22 18:05:12,675 - INFO - Starting SCM automation script
+2026-04-22 18:08:14,618 - INFO - Starting SCM automation script
+2026-04-22 18:08:21,766 - INFO - Unable to retrieve current parameter values
+2026-04-22 18:12:06,615 - INFO - Starting SCM automation script
+2026-04-22 18:12:15,561 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 18:17:55,687 - INFO - Starting SCM automation script
+2026-04-22 18:18:05,302 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 18:19:04,240 - INFO - Starting SCM automation script
+2026-04-22 18:19:10,236 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 18:20:44,894 - INFO - Unable to retrieve current parameter values
+2026-04-22 18:34:33,688 - INFO - Starting SCM automation script
+2026-04-22 18:34:46,189 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 18:37:27,769 - INFO - Starting SCM automation script
+2026-04-22 18:37:35,059 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 18:37:41,279 - INFO - Retrieved current values - Customer Priority: Due Date
+                
+                
+                
+                  Low (0%)
+                  
+                  High (100%), Due Date: Due Date
+                
+                
+                
+                  Low (0%)
+                  
+                  High (100%), Revenue: 34
+2026-04-22 18:38:59,041 - INFO - Starting SCM automation script
+2026-04-22 18:39:02,251 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 18:39:08,545 - INFO - Unable to retrieve current parameter values: CustomerPriority=Due Date, DueDate=None, Revenue=34
+2026-04-22 18:40:56,307 - INFO - Starting SCM automation script
+2026-04-22 18:41:07,175 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 18:41:13,426 - INFO - Retrieved current values - Customer Priority: http://172.190.107.21/WebApplicationSCM/, Due Date: http://172.190.107.21/WebApplicationSCM/, Revenue: 34
+2026-04-22 18:44:57,479 - INFO - Starting SCM automation script
+2026-04-22 18:45:03,240 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 18:45:09,492 - INFO - Retrieved current values - Customer Priority: http://172.190.107.21/WebApplicationSCM/, Due Date: http://172.190.107.21/WebApplicationSCM/, Revenue: 34
+2026-04-22 18:51:44,132 - INFO - Starting SCM automation script
+2026-04-22 18:51:47,567 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 18:51:53,855 - INFO - Retrieved current values - Customer Priority: http://172.190.107.21/WebApplicationSCM/, Due Date: http://172.190.107.21/WebApplicationSCM/, Revenue: 34
+2026-04-22 18:52:03,840 - INFO - Starting SCM automation script
+2026-04-22 18:52:07,195 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 18:52:13,482 - INFO - Retrieved current values - Customer Priority: http://172.190.107.21/WebApplicationSCM/, Due Date: http://172.190.107.21/WebApplicationSCM/, Revenue: 34
+2026-04-22 18:52:29,734 - INFO - Starting SCM automation script
+2026-04-22 18:52:33,053 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 18:52:39,533 - INFO - Retrieved current values - Customer Priority: http://172.190.107.21/WebApplicationSCM/, Due Date: http://172.190.107.21/WebApplicationSCM/, Revenue: 34
+2026-04-22 18:53:07,214 - INFO - Starting SCM automation script
+2026-04-22 18:53:10,509 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 18:53:16,805 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-22 18:54:53,171 - INFO - Starting SCM automation script
+2026-04-22 18:55:00,134 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 18:55:06,398 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-22 18:55:06,398 - INFO - SCM automation script completed successfully
+2026-04-22 22:03:31,251 - INFO - Starting SCM automation script
+2026-04-22 22:03:39,048 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 22:03:39,089 - INFO - SCM automation script completed successfully
+2026-04-22 22:03:52,945 - INFO - User pressed ENTER; continuing to close browser
+2026-04-22 22:05:05,193 - INFO - Starting SCM automation script
+2026-04-22 22:05:11,802 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 22:05:11,840 - INFO - SCM automation script completed successfully
+2026-04-22 22:11:04,632 - INFO - User pressed ENTER; continuing to close browser
+2026-04-22 22:11:14,884 - INFO - Starting SCM automation script
+2026-04-22 22:12:29,871 - INFO - User pressed ENTER; continuing to close browser
+2026-04-22 22:12:33,414 - INFO - Starting SCM automation script
+2026-04-22 22:15:49,170 - INFO - User pressed ENTER; continuing to close browser
+2026-04-22 22:15:53,100 - INFO - Starting SCM automation script
+2026-04-22 22:15:59,246 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 22:16:42,519 - INFO - User pressed ENTER; continuing to close browser
+2026-04-22 22:16:45,680 - INFO - Starting SCM automation script
+2026-04-22 22:16:50,532 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 22:16:56,802 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-22 22:18:07,888 - INFO - User pressed ENTER; continuing to close browser
+2026-04-22 22:25:57,976 - INFO - Starting SCM automation script
+2026-04-22 22:26:07,004 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 22:26:13,261 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-22 22:29:52,449 - INFO - Starting SCM automation script
+2026-04-22 22:29:55,850 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 22:30:02,128 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-22 22:30:03,226 - INFO - User pressed ENTER; continuing to close browser
+2026-04-22 22:30:58,602 - INFO - Starting SCM automation script
+2026-04-22 22:31:01,772 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 22:31:08,036 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-22 22:31:09,122 - INFO - User pressed ENTER; continuing to close browser
+2026-04-22 22:54:54,769 - INFO - Starting SCM automation script
+2026-04-22 22:54:58,032 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 22:55:04,315 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-22 22:55:05,420 - INFO - User pressed ENTER; continuing to close browser
+2026-04-22 22:57:56,164 - INFO - Starting SCM automation script
+2026-04-22 22:57:59,342 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 22:58:05,614 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-22 22:58:06,727 - INFO - User pressed ENTER; continuing to close browser
+2026-04-22 22:58:22,888 - INFO - Starting SCM automation script
+2026-04-22 22:58:26,193 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 22:58:32,431 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-22 22:58:33,582 - INFO - User pressed ENTER; continuing to close browser
+2026-04-22 22:58:54,365 - INFO - Starting SCM automation script
+2026-04-22 22:58:57,505 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 22:59:03,802 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-22 22:59:04,884 - INFO - User pressed ENTER; continuing to close browser
+2026-04-22 23:35:06,149 - INFO - Starting SCM automation script
+2026-04-22 23:35:12,498 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 23:35:18,755 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-22 23:38:39,495 - INFO - User pressed ENTER; continuing to close browser
+2026-04-22 23:38:47,882 - INFO - Starting SCM automation script
+2026-04-22 23:38:53,392 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 23:38:59,662 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-22 23:39:01,733 - INFO - Retrieved updated values - Customer Priority: 33, Due Date: 34, Revenue: 33
+2026-04-22 23:39:21,516 - INFO - User pressed ENTER; continuing to close browser
+2026-04-22 23:55:57,936 - INFO - Starting SCM automation script
+2026-04-22 23:56:03,819 - INFO - User pressed ENTER; continuing to submit login
+2026-04-22 23:56:10,097 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-22 23:56:12,168 - INFO - Retrieved updated values - Customer Priority: 33, Due Date: 34, Revenue: 33
+2026-04-22 23:56:24,506 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 00:12:41,781 - INFO - Starting SCM automation script
+2026-04-23 00:12:54,401 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 00:13:00,684 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 34, Revenue: 33
+2026-04-23 00:13:02,952 - INFO - Retrieved updated values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-23 00:14:11,758 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 00:14:16,201 - INFO - Starting SCM automation script
+2026-04-23 00:14:20,423 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 00:14:26,677 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-23 00:14:30,789 - INFO - Retrieved updated values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-23 00:14:33,646 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 09:02:26,788 - INFO - Starting SCM automation script
+2026-04-23 09:02:32,461 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 09:02:32,605 - INFO - SCM automation script completed successfully
+2026-04-23 09:02:51,843 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 09:06:43,609 - INFO - Starting SCM automation script
+2026-04-23 09:07:25,980 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 09:07:29,240 - INFO - Starting SCM automation script
+2026-04-23 09:07:42,110 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 09:07:42,159 - INFO - SCM automation script completed successfully
+2026-04-23 09:07:44,611 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 09:07:48,095 - INFO - Starting SCM automation script
+2026-04-23 09:07:54,010 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 09:07:54,051 - INFO - SCM automation script completed successfully
+2026-04-23 09:09:21,509 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 09:09:26,173 - INFO - Starting SCM automation script
+2026-04-23 09:11:12,880 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 09:11:19,606 - INFO - Starting SCM automation script
+2026-04-23 09:11:25,411 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 09:11:25,461 - INFO - SCM automation script completed successfully
+2026-04-23 09:12:13,876 - INFO - Starting SCM automation script
+2026-04-23 09:12:25,526 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 09:22:27,218 - INFO - Starting SCM automation script
+2026-04-23 09:22:33,226 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 09:22:33,306 - INFO - SCM automation script completed successfully
+2026-04-23 09:25:46,895 - INFO - Starting SCM automation script
+2026-04-23 09:26:01,256 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 09:37:41,417 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 09:38:42,065 - INFO - Starting SCM automation script
+2026-04-23 09:38:47,410 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 09:38:48,971 - INFO - SCM automation script completed successfully
+2026-04-23 10:03:54,832 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 10:04:40,102 - INFO - Starting SCM automation script
+2026-04-23 10:06:11,479 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 10:20:15,645 - INFO - Starting SCM automation script
+2026-04-23 10:20:21,628 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 10:20:29,798 - INFO - Starting SCM automation script
+2026-04-23 10:20:35,710 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 10:20:37,021 - INFO - SCM automation script completed successfully
+2026-04-23 10:20:47,959 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 10:20:53,180 - INFO - Starting SCM automation script
+2026-04-23 10:24:49,887 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 10:51:46,680 - INFO - Starting SCM automation script
+2026-04-23 10:51:53,055 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 10:51:53,098 - INFO - SCM automation script completed successfully
+2026-04-23 10:51:59,205 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 10:54:25,819 - INFO - Starting SCM automation script
+2026-04-23 10:54:32,028 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 10:54:38,289 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-23 10:54:55,840 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 10:56:05,729 - INFO - Starting SCM automation script
+2026-04-23 10:56:11,041 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 10:56:17,292 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-23 10:56:21,412 - INFO - Retrieved updated values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-23 10:56:25,307 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 11:03:08,921 - INFO - Starting SCM automation script
+2026-04-23 11:03:14,811 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 11:03:24,292 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 11:32:42,100 - INFO - Starting SCM automation script
+2026-04-23 11:32:47,151 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 11:35:51,650 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 11:35:57,285 - INFO - Starting SCM automation script
+2026-04-23 11:41:02,120 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 11:41:08,396 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-23 11:41:14,601 - INFO - Retrieved max ScenarioId from grid: 215
+2026-04-23 11:41:14,601 - INFO - Generated new scenario name: 04-23-Unconst-216-33-33-34
+2026-04-23 11:44:54,083 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 11:55:02,383 - INFO - Starting SCM automation script
+2026-04-23 11:55:07,303 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 11:55:13,561 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-23 11:55:19,787 - INFO - Retrieved max ScenarioId from grid: 215
+2026-04-23 11:55:19,787 - INFO - Generated new scenario name: 04-23-Unconst-216-33-33-34
+2026-04-23 11:55:33,577 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 11:55:59,252 - INFO - Starting SCM automation script
+2026-04-23 11:56:04,196 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 11:56:10,460 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-23 11:56:16,685 - INFO - Retrieved max ScenarioId from grid: 215
+2026-04-23 11:56:16,685 - INFO - Generated new scenario name: 04-23-Unconst-216-33-33-34
+2026-04-23 11:56:30,176 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 12:01:44,873 - INFO - Starting SCM automation script
+2026-04-23 12:01:49,845 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 12:01:56,105 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-23 12:02:02,307 - INFO - Retrieved max ScenarioId from grid: 215
+2026-04-23 12:02:02,307 - INFO - Generated new scenario name: 04-23-Unconst-33-33-34
+2026-04-23 12:08:31,631 - INFO - Starting SCM automation script
+2026-04-23 12:08:37,194 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 12:08:43,444 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-23 12:08:49,664 - INFO - Retrieved max ScenarioId from grid: 215
+2026-04-23 12:08:49,664 - INFO - Generated new scenario name: 04-23-Unconst-33-33-34
+2026-04-23 12:21:30,726 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 12:21:34,898 - INFO - Starting SCM automation script
+2026-04-23 12:21:39,878 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 12:21:46,133 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-23 12:21:52,369 - INFO - Retrieved max ScenarioId from grid: 215
+2026-04-23 12:21:52,370 - INFO - Generated new scenario name: 04-23-Unconst-33-33-34
+2026-04-23 12:29:50,713 - INFO - Starting SCM automation script
+2026-04-23 12:29:55,363 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 12:30:01,624 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-23 12:30:07,838 - INFO - Retrieved max ScenarioId from grid: 215
+2026-04-23 12:30:07,838 - INFO - Generated new scenario name: 04-23-Unconst-33-33-34
+2026-04-23 12:30:52,214 - INFO - Starting SCM automation script
+2026-04-23 12:30:58,973 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 12:31:05,232 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-23 12:31:11,447 - INFO - Retrieved max ScenarioId from grid: 215
+2026-04-23 12:31:11,447 - INFO - Generated new scenario name: 04-23-Unconst-33-33-34
+2026-04-23 12:31:24,641 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 12:39:06,479 - INFO - Starting SCM automation script
+2026-04-23 12:39:11,693 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 12:39:17,948 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-23 12:39:24,161 - INFO - Retrieved max ScenarioId from grid: 215
+2026-04-23 12:39:24,162 - INFO - Generated new scenario name: 04-23-Unconst-33-33-34
+2026-04-23 12:39:48,825 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 12:48:44,893 - INFO - Starting SCM automation script
+2026-04-23 12:49:04,666 - INFO - Starting SCM automation script
+2026-04-23 12:49:11,679 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 12:49:59,694 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 12:50:46,004 - INFO - Starting SCM automation script
+2026-04-23 12:50:53,343 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 12:51:23,562 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 12:54:22,880 - INFO - Starting SCM automation script
+2026-04-23 12:54:27,729 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 12:57:33,366 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 12:57:40,531 - INFO - Starting SCM automation script
+2026-04-23 12:57:45,568 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 12:58:15,004 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 13:02:17,629 - INFO - Starting SCM automation script
+2026-04-23 13:02:22,507 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 13:04:05,309 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 13:04:13,037 - INFO - Starting SCM automation script
+2026-04-23 13:04:18,007 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 13:04:48,213 - INFO - Starting SCM automation script
+2026-04-23 13:04:52,823 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 13:08:36,395 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 13:08:42,757 - INFO - Starting SCM automation script
+2026-04-23 13:08:47,276 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 13:09:14,560 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 13:16:28,871 - INFO - Starting SCM automation script
+2026-04-23 13:16:33,926 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 13:16:48,976 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 13:27:44,659 - INFO - Starting SCM automation script
+2026-04-23 13:27:49,460 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 13:28:40,994 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 13:32:21,064 - INFO - Starting SCM automation script
+2026-04-23 13:32:26,265 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 13:34:56,197 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 13:35:03,345 - INFO - Starting SCM automation script
+2026-04-23 13:35:08,647 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 13:36:25,364 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 13:38:23,657 - INFO - Starting SCM automation script
+2026-04-23 13:38:29,494 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 13:39:43,729 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 13:43:23,224 - INFO - Starting SCM automation script
+2026-04-23 13:43:28,932 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 13:47:31,750 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 13:47:36,485 - INFO - Starting SCM automation script
+2026-04-23 13:48:46,168 - INFO - Starting SCM automation script
+2026-04-23 13:48:50,984 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 13:49:11,367 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 13:49:47,630 - INFO - Starting SCM automation script
+2026-04-23 13:49:52,464 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 14:02:52,800 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 14:02:56,253 - INFO - Starting SCM automation script
+2026-04-23 14:03:02,011 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 14:07:02,777 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 14:07:09,865 - INFO - Starting SCM automation script
+2026-04-23 14:07:14,712 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 14:08:36,318 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 14:14:44,609 - INFO - Starting SCM automation script
+2026-04-23 14:14:54,492 - INFO - Starting SCM automation script
+2026-04-23 14:14:59,911 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 14:34:56,964 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 14:35:09,101 - INFO - Starting SCM automation script
+2026-04-23 14:35:34,283 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 14:46:15,257 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 14:58:05,738 - INFO - Starting SCM automation script
+2026-04-23 14:58:16,790 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 14:58:16,836 - INFO - SCM automation script completed successfully
+2026-04-23 14:58:25,509 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 14:58:37,739 - INFO - Starting SCM automation script
+2026-04-23 14:58:42,293 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 14:58:48,519 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-23 14:58:58,991 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 14:59:19,323 - INFO - Starting SCM automation script
+2026-04-23 14:59:23,758 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 14:59:29,979 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-23 14:59:34,072 - INFO - Retrieved updated values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-23 14:59:43,257 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 14:59:57,720 - INFO - Starting SCM automation script
+2026-04-23 15:00:03,491 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 15:00:09,680 - INFO - Retrieved current values - Customer Priority: 33, Due Date: 33, Revenue: 34
+2026-04-23 15:00:15,854 - INFO - Retrieved max ScenarioId from grid: 215
+2026-04-23 15:00:15,854 - INFO - Generated new scenario name: 04-23-Unconst-33-33-34
+2026-04-23 15:01:14,920 - INFO - User pressed ENTER; continuing to close browser
+2026-04-23 15:47:39,278 - INFO - Starting SCM automation script
+2026-04-23 15:47:49,833 - INFO - User pressed ENTER; continuing to submit login
+2026-04-23 15:47:49,871 - INFO - SCM automation script completed successfully
+2026-04-23 15:47:58,566 - INFO - User pressed ENTER; continuing to close browser
+2026-04-24 09:32:28,975 - INFO - Starting SCM automation script
+2026-04-24 09:32:38,829 - INFO - User pressed ENTER; continuing to submit login
+2026-04-24 09:41:00,286 - INFO - User pressed ENTER; continuing to close browser
+2026-04-24 10:17:49,314 - INFO - Starting SCM automation script
+2026-04-24 10:17:58,912 - INFO - User pressed ENTER; continuing to submit login
+2026-04-24 10:19:51,090 - INFO - User pressed ENTER; continuing to close browser
+2026-04-24 10:31:47,463 - INFO - Starting SCM automation script
+2026-04-24 10:32:04,453 - INFO - User pressed ENTER; continuing to submit login
+2026-04-24 11:03:46,539 - INFO - User pressed ENTER; continuing to close browser
+2026-04-24 11:04:01,546 - INFO - Starting SCM automation script
+2026-04-24 11:04:06,976 - INFO - User pressed ENTER; continuing to submit login
+2026-04-24 11:05:13,321 - INFO - User pressed ENTER; continuing to close browser
+2026-04-24 11:05:17,544 - INFO - Starting SCM automation script
+2026-04-24 11:05:23,145 - INFO - User pressed ENTER; continuing to submit login
+2026-04-24 11:05:58,347 - INFO - User pressed ENTER; continuing to close browser
+2026-04-24 11:06:02,978 - INFO - Starting SCM automation script
+2026-04-24 11:06:08,016 - INFO - User pressed ENTER; continuing to submit login
+2026-04-24 11:06:43,401 - INFO - User pressed ENTER; continuing to close browser
+2026-04-24 11:35:07,247 - INFO - Starting SCM automation script
+2026-04-24 11:35:43,867 - INFO - User pressed ENTER; continuing to submit login
+2026-04-24 11:37:40,624 - INFO - User pressed ENTER; continuing to close browser
+2026-04-24 11:38:16,415 - INFO - Starting SCM automation script
+2026-04-24 11:38:31,742 - INFO - User pressed ENTER; continuing to submit login
+2026-04-24 11:38:51,808 - INFO - User pressed ENTER; continuing to close browser
+2026-04-24 14:24:53,181 - INFO - Starting SCM automation script
+2026-04-24 14:24:59,835 - INFO - User pressed ENTER; continuing to submit login
+2026-04-24 14:34:09,830 - INFO - User pressed ENTER; continuing to close browser
+2026-04-24 14:35:56,147 - INFO - Starting SCM automation script
+2026-04-24 14:36:01,836 - INFO - User pressed ENTER; continuing to submit login
+2026-04-24 14:36:12,773 - INFO - User pressed ENTER; continuing to close browser
