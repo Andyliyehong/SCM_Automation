@@ -3,8 +3,9 @@ import sys
 import asyncio
 import time
 import re
+from tkinter import dialog
 from typing import Dict, Any, Optional
-from playwright.async_api import async_playwright
+from playwright.async_api import Page, async_playwright
 from mcp.server.fastmcp import FastMCP
 from dotenv import load_dotenv
 import logging
@@ -145,6 +146,35 @@ async def get_field_value(page, field_name: str, field_label: str):
 
     return None
 
+async def edit_and_update_values_and_save(page: Page, customer_priority: str, due_date: str, revenue: str):
+    # Click Edit (icon button)
+    await page.locator("#OPTParams_edit").wait_for(state="visible")
+    await page.locator("#OPTParams_edit").click(force=True)
+
+    # Fill values (prefer visible inputs; avoids hidden/template matches)
+    await page.locator('input[id="Customer Priority"]:visible').first.wait_for(state="visible")
+    await page.locator('input[id="Customer Priority"]:visible').first.fill(str(customer_priority))
+    await page.locator('input[id="Due Date"]:visible').first.fill(str(due_date))
+    await page.locator('input[id="Revenue"]:visible').first.fill(str(revenue))
+
+    save_btn = page.locator("#OPTParams_save")
+    await save_btn.wait_for(state="visible")
+    await save_btn.click(force=True)
+
+    await page.wait_for_load_state('networkidle')
+    await asyncio.sleep(2)  # Additional wait for changes to save and reflect
+    # Click OK on confirmation dialog (jQuery UI style)
+    # ok_btn = page.locator('span.ui-button-text:has-text("Ok")').first.locator("xpath=ancestor::button[1]")
+    # ok_btn.wait_for(state="visible")
+    # ok_btn.click(force=True)
+
+    dialog = page.locator('div.ui-dialog[role="dialog"]:visible')
+    await dialog.wait_for(state="visible")
+
+    ok_btn = dialog.locator('.ui-dialog-buttonpane .ui-dialog-buttonset button:has-text("Ok")')
+    await ok_btn.wait_for(state="visible")
+    await ok_btn.click(force=True)
+
 # Initialize MCP server
 mcp = FastMCP("SCM_Agent")
 
@@ -206,6 +236,7 @@ class SCMAutomator:
 @mcp.tool()
 async def get_business_parameters() -> str:
     """Get the current business parameters (Customer Priority, Due Date, Revenue)."""
+    logger.info(f"Current event loop: {id(asyncio.get_event_loop())}")
     logger.info("Retrieving business parameters")
     scm = SCMAutomator()
     async with async_playwright() as p:
@@ -214,28 +245,31 @@ async def get_business_parameters() -> str:
         try:
             await scm._login(page)
             # await asyncio.sleep(2)  # Wait for page to load after login
-            await scm._click_menu(page, ["Input", "XylemParameters"])
-           
-            await page.wait_for_load_state('networkidle')
+            print("Navigating to Input tab and XylemParameters...")
+            await asyncio.sleep(3)
+            await click_menu_item(page, "Input")
             await asyncio.sleep(1)
+            await click_menu_item(page, "XylemParameters")
+            await page.wait_for_load_state('networkidle')
+            await asyncio.sleep(2)  # Additional wait for page to load
+            print("   ✓ Navigated to XylemParameters")
+           
+            customer_priority = await get_field_value(page, "CustomerPriority", "Customer Priority")
+            due_date = await get_field_value(page, "DueDate", "Due Date")
+            revenue = await get_field_value(page, "Revenue", "Revenue")
             # Extract logic
-            results = []
-            field_mappings = {
-                "Customer Priority": "CustomerPriority",
-                "Due Date": "DueDate",
-                "Revenue": "Revenue"
+            results = {
+                "Customer Priority": customer_priority,
+                "Due Date": due_date,
+                "Revenue": revenue
             }
-            for field_label, field_name in field_mappings.items():
-                val = await get_field_value(page, field_name, field_label)
-                results.append(f"{field_label}: {val if val else 'N/A'}")
-            
             logger.info("Business parameters retrieved successfully")
-            return "\n".join(results)
+            return "\n".join([f"{key}: {value}" for key, value in results.items()])
         finally:
             await browser.close()
 
 @mcp.tool()
-async def update_parameters(customer_priority: int, due_date: int, revenue: int) -> str:
+async def update_parameters(customer_priority: str, due_date: str, revenue: str) -> str:
     """Update the business parameters (Customer Priority, Due Date, Revenue)."""
     logger.info("Updating business parameters")
     scm = SCMAutomator()
@@ -244,13 +278,43 @@ async def update_parameters(customer_priority: int, due_date: int, revenue: int)
         page = await browser.new_page()
         try:
             await scm._login(page)
-            await scm._click_menu(page, ["Input", "XylemParameters"])
-            # Update logic
-            # This is where you would place the input field locators from 3_update_business_parameters.py   
-            # page.fill(...) 
-            # page.click("text=Submit")
-            logger.info("Parameters updated successfully.")
-            return "Parameters updated successfully."
+            # await asyncio.sleep(2)  # Wait for page to load after login
+            print("Navigating to Input tab and XylemParameters...")
+            await asyncio.sleep(3)
+            await click_menu_item(page, "Input")
+            await asyncio.sleep(1)
+            await click_menu_item(page, "XylemParameters")
+            await page.wait_for_load_state('networkidle')
+            await asyncio.sleep(2)  # Additional wait for page to load
+            print("   ✓ Navigated to XylemParameters")
+           
+            existing_customer_priority = await get_field_value(page, "CustomerPriority", "Customer Priority")
+            existing_due_date = await get_field_value(page, "DueDate", "Due Date")
+            existing_revenue = await get_field_value(page, "Revenue", "Revenue")
+            # Extract logic
+            results = {
+                "Customer Priority": existing_customer_priority,
+                "Due Date": existing_due_date,
+                "Revenue": existing_revenue
+            }
+            logger.info("Business parameters retrieved successfully")
+            print("\n".join([f"{key}: {value}" for key, value in results.items()]))
+
+            await edit_and_update_values_and_save(page, customer_priority, due_date, revenue)
+            logger.info("Business parameters updated successfully")
+            await page.wait_for_load_state('networkidle')
+            await asyncio.sleep(2)  # Additional wait for changes to save and reflect
+            logger.info("Verifying updated parameters")
+            customer_priority = await get_field_value(page, "CustomerPriority", "Customer Priority")
+            due_date = await get_field_value(page, "DueDate", "Due Date")
+            revenue = await get_field_value(page, "Revenue", "Revenue")
+            results = {
+                "Customer Priority": customer_priority,
+                "Due Date": due_date,
+                "Revenue": revenue
+            }
+            logger.info("Updated business parameters retrieved successfully")
+            return "Updated Parameters:\n" + "\n".join([f"{key}: {value}" for key, value in results.items()])
         finally:
             await browser.close()
 
@@ -301,4 +365,7 @@ async def get_comparison_report() -> str:
 
 if __name__ == "__main__":
     logger.info("Starting SCM MCP Server")
-    mcp.run()
+    try:
+        mcp.run()   
+    except Exception as e:
+        logger.error(f"Error occurred while running SCM MCP Server: {e}")
