@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 import os
 import sys
 import asyncio
@@ -10,6 +10,7 @@ from playwright.async_api import Page, async_playwright
 from mcp.server.fastmcp import FastMCP
 from dotenv import load_dotenv
 import logging
+import pandas as pd
 
 # Configure logging
 logging.basicConfig(level=logging.INFO,
@@ -179,31 +180,31 @@ async def edit_and_update_values_and_save(page: Page, customer_priority: str, du
 def _today_mm_dd() -> str:
     return datetime.now().strftime("%m-%d")
 
-def get_max_scenario_id(page: Page) -> int:
+async def get_max_scenario_id(page: Page) -> int:
     """
     From Scenario Master  read 'ScenarioId' and retrieve the max value
     """
 
     # 1) Wait for the grid data area to be visible 
     data_area = page.locator("#div_ScenarioMaster .pv-datagrid-data")
-    data_area.wait_for(state="visible")
+    await data_area.wait_for(state="visible")
 
     # 2) Get all rows in the grid
     rows = data_area.locator("table tbody tr")
-    row_count = rows.count()
+    row_count = await rows.count()
     if row_count == 0:
         raise RuntimeError("Scenario Master grid has no data rows.")
 
     # 3) Get column headers and find the index of the 'ScenarioId' column
     header_ths = page.locator('#div_ScenarioMaster .pv-datagrid-colheaders th')
-    header_count = header_ths.count()
+    header_count = await header_ths.count()
     if header_count == 0:
         raise RuntimeError("Column headers not found.")
 
 
     scenario_id_col_index = None
     for i in range(header_count):
-        colname = (header_ths.nth(i).get_attribute("data-colname") or "").strip()
+        colname = (await header_ths.nth(i).get_attribute("data-colname") or "").strip()
         if colname.lower() == "scenarioid":
             scenario_id_col_index = i
             break
@@ -216,7 +217,7 @@ def get_max_scenario_id(page: Page) -> int:
     for r in range(row_count):
         # Get the cell in the ScenarioId column for this row
         cell = rows.nth(r).locator("td").nth(scenario_id_col_index)
-        txt = (cell.inner_text() or "").strip()
+        txt = (await cell.inner_text() or "").strip()
 
         m = re.search(r"\d+", txt)
         if not m:
@@ -415,7 +416,7 @@ async def create_scenario() -> str:
             # Step 10: Create a new Scenario
             print("Creating a new Scenario...")
 
-            max_id = get_max_scenario_id(page)
+            max_id = await get_max_scenario_id(page)
             new_scenario_id = max_id + 1
             print("New Scenario Id =", new_scenario_id)
             logging.info(f"Retrieved max ScenarioId from grid: {max_id}")
@@ -431,11 +432,12 @@ async def create_scenario() -> str:
             await page.locator('input[data-datafieldname="ScenarioId"]').fill(str(new_scenario_id))
             await page.locator('input[data-datafieldname="ScenarioName"]').fill(str(new_scenario_name))
     
-            add_btn = await page.locator('.ui-dialog-buttonpane .ui-dialog-buttonset button:has-text("Add")')
-            add_btn.wait_for(state="visible")
-            add_btn.click(force=True)
-
-
+            add_btn = page.locator('.ui-dialog-buttonpane .ui-dialog-buttonset button:has-text("Add")')
+            await add_btn.wait_for(state="visible")
+            await asyncio.sleep(2)  # Wait for any dynamic validation to complete
+            await add_btn.click(force=True)
+            await page.wait_for_load_state('networkidle')
+            await asyncio.sleep(2)  # Additional wait for scenario to be created and grid to refresh
             # The logic here refers to 4_create_new_scenario.py
             return f"Scenario '{new_scenario_name}' created."
         finally:
@@ -450,9 +452,29 @@ async def run_workflow() -> str:
         page = await browser.new_page()
         try:
             await scm._login(page)
-            await scm._click_menu(page, ["Workflow", "Workflow Execution"])
+            # await asyncio.sleep(2)  # Wait for page to load after login
+
+            print("Navigating to File tab and Work Flow...")
+            await asyncio.sleep(3)
+            await click_menu_item(page, "File")
+            await asyncio.sleep(1)
+            wf = await page.locator('#pvmenubar ul.pv-sub-menu:visible a.pagelink[data-menuname="WorkFlow"]:visible')
+            await wf.wait_for(state="visible", timeout=10000)
+            await wf.click()
+            await page.wait_for_load_state('networkidle')
+            await asyncio.sleep(2)  # Additional wait for page to load
+            print("   ✓ Navigated to Workflow")
             # Execution logic refers to 5_run_workflow.py
-            return "Workflow execution triggered."
+             # Step 8: Select the workflows which need to run and click run button
+            await page.eval_on_selector_all('div.pv-datagrid-data tr[pv-data-row="True"]', '(rows, targets)=>{const set=new Set(targets); rows.forEach(r=>{const t=(r.querySelector(\'td[data-colname="Description"] .pv-view-element\')?.textContent||"").trim(); if(set.has(t)){(r.querySelector(\'td[data-colname="CheckBox"] input[type="checkbox"]\')||r.querySelector(\'td[data-colname="CheckBox"]\'))?.click();}});}', ["Generate Master data","Preprocessing","Update Production Shifts","Finite Capacity Plan","UpdateEPST_Early Ship Date","Scheduling","Scheduling Output","Save Scenario"])
+            await asyncio.sleep(2)  # Additional wait for page to load
+            print("   ✓ Check the workflows which need to run")
+
+            # # Click the Run button to run the workflows
+            # await page.click("#btn_runworkflow")
+            # await asyncio.sleep(2)  # Additional wait for page to load
+            # print("   ✓ Clicked Run button to run the workflows")
+            # return "Workflow execution triggered."
         finally:
             await browser.close()
 
@@ -465,7 +487,72 @@ async def get_comparison_report() -> str:
         page = await browser.new_page()
         try:
             await scm._login(page)
-            await scm._click_menu(page, ["Analysis", "Comparison Analytics"])
+            # await asyncio.sleep(2)  # Wait for page to load after login
+
+            print("Navigating to Xylem Reports tab and Scenario Comparison - Analytics...")
+            await asyncio.sleep(3)
+            await click_menu_item(page, "Xylem Reports")
+            await asyncio.sleep(1)
+            wf = page.locator('#pvmenubar ul.pv-sub-menu:visible a.pagelink[data-modulename="ScenarioComparison_Analytics"]:visible')
+            await wf.wait_for(state="visible", timeout=10000)
+            await wf.click()
+            await page.wait_for_load_state('networkidle')
+            await asyncio.sleep(2)  # Additional wait for page to load
+            print("   ✓ Navigated to Scenario Comparison - Analytics")
+            # Execution logic refers to 5_run_workflow.py
+            # Retrieve ScenarioComparison_Analytics as table data and convert to structured format (e.g. list of dicts)
+            col_list = []
+
+            headers = page.locator(
+                '#TopGrid[data-tablename="ScenarioComparison_Analytics"] '
+                '.pv-datagrid-colheaders [data-colname]'
+            )
+
+            for i in range(headers.count()):
+                col_list.append(headers.nth(i).get_attribute("data-colname"))
+            col_list = list(dict.fromkeys(col_list))
+            print("Extracted column names:")
+            print(col_list)
+
+            grid = page.locator('#TopGrid[data-tablename="ScenarioComparison_Analytics"]')
+
+            payload = grid.evaluate(r"""
+            (el) => {
+            const norm = (s) => (s || '').replace(/\s+/g, ' ').trim();
+
+            // --- headers: prefer data-colname, fallback to data-column ---
+            const ths =
+                el.querySelectorAll('.pv-datagrid-colheaders th[data-colname]')?.length
+                ? el.querySelectorAll('.pv-datagrid-colheaders th[data-colname]')
+                : el.querySelectorAll('.pv-datagrid-colheaders th[data-column]');
+
+            const headers = Array.from(ths).map(th => th.getAttribute('data-colname') || th.getAttribute('data-column') || norm(th.textContent));
+
+            // --- rows: inside pv-datagrid-data, grab all row-like <tr> that contain <td> ---
+            const dataRoot = el.querySelector('.pv-datagrid-data') || el;
+            const rowTrs = Array.from(dataRoot.querySelectorAll('tr')).filter(tr => tr.querySelectorAll('td').length > 0);
+
+            const rows = rowTrs.map(tr => Array.from(tr.querySelectorAll('td')).map(td => norm(td.textContent)));
+
+            return { headers, rows };
+            }
+            """)
+
+            # ---- headers: remove duplicates but keep order ----
+            headers = list(dict.fromkeys(payload["headers"]))  # keep order
+            rows = payload["rows"]
+
+            # ---- normalize shape so pandas won't error ----
+            max_len = max([len(headers)] + [len(r) for r in rows]) if (headers or rows) else 0
+            headers2 = headers + [f"__extra_{i}" for i in range(len(headers), max_len)]
+            rows2 = [r + [None] * (max_len - len(r)) for r in rows]
+
+            df = pd.DataFrame(rows2, columns=headers2)
+
+            print(df.head(10).to_string(index=False))
+            logger.info("Scenario comparison report data retrieved successfully")
+            logger.info(f"Report contains {len(df)} rows and {len(df.columns)} columns")
+
             # Extract report logic refers to 6_retrieve_scenario_comparison_analytics_reports.py
             return "Report data retrieved: [Analysis Summary Data...]"
         finally:
