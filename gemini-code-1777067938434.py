@@ -1,3 +1,4 @@
+import datetime
 import os
 import sys
 import asyncio
@@ -175,6 +176,62 @@ async def edit_and_update_values_and_save(page: Page, customer_priority: str, du
     await ok_btn.wait_for(state="visible")
     await ok_btn.click(force=True)
 
+def _today_mm_dd() -> str:
+    return datetime.now().strftime("%m-%d")
+
+def get_max_scenario_id(page: Page) -> int:
+    """
+    From Scenario Master  read 'ScenarioId' and retrieve the max value
+    """
+
+    # 1) Wait for the grid data area to be visible 
+    data_area = page.locator("#div_ScenarioMaster .pv-datagrid-data")
+    data_area.wait_for(state="visible")
+
+    # 2) Get all rows in the grid
+    rows = data_area.locator("table tbody tr")
+    row_count = rows.count()
+    if row_count == 0:
+        raise RuntimeError("Scenario Master grid has no data rows.")
+
+    # 3) Get column headers and find the index of the 'ScenarioId' column
+    header_ths = page.locator('#div_ScenarioMaster .pv-datagrid-colheaders th')
+    header_count = header_ths.count()
+    if header_count == 0:
+        raise RuntimeError("Column headers not found.")
+
+
+    scenario_id_col_index = None
+    for i in range(header_count):
+        colname = (header_ths.nth(i).get_attribute("data-colname") or "").strip()
+        if colname.lower() == "scenarioid":
+            scenario_id_col_index = i
+            break
+
+    if scenario_id_col_index is None:
+        raise RuntimeError("Column header for 'ScenarioId' not found.")
+
+    # 4) Iterate through rows to find the max ScenarioId value
+    max_id = None
+    for r in range(row_count):
+        # Get the cell in the ScenarioId column for this row
+        cell = rows.nth(r).locator("td").nth(scenario_id_col_index)
+        txt = (cell.inner_text() or "").strip()
+
+        m = re.search(r"\d+", txt)
+        if not m:
+            continue
+        val = int(m.group(0))
+        max_id = val if (max_id is None) else max(max_id, val)
+
+    if max_id is None:
+        raise RuntimeError("No numeric values found in the 'ScenarioId' column.")
+
+    return max_id
+
+
+
+
 # Initialize MCP server
 mcp = FastMCP("SCM_Agent")
 
@@ -319,7 +376,7 @@ async def update_parameters(customer_priority: str, due_date: str, revenue: str)
             await browser.close()
 
 @mcp.tool()
-async def create_scenario(scenario_name: str) -> str:
+async def create_scenario() -> str:
     """Create a new scenario (Scenario)."""
     scm = SCMAutomator()
     async with async_playwright() as p:
@@ -327,9 +384,60 @@ async def create_scenario(scenario_name: str) -> str:
         page = await browser.new_page()
         try:
             await scm._login(page)
-            await scm._click_menu(page, ["Scenario", "Scenario Manager"])
+            # await asyncio.sleep(2)  # Wait for page to load after login
+            print("Navigating to Input tab and XylemParameters...")
+            await asyncio.sleep(3)
+            await click_menu_item(page, "Input")
+            await asyncio.sleep(1)
+            await click_menu_item(page, "XylemParameters")
+            await page.wait_for_load_state('networkidle')
+            await asyncio.sleep(2)  # Additional wait for page to load
+            print("   ✓ Navigated to XylemParameters")
+           
+            customer_priority = await get_field_value(page, "CustomerPriority", "Customer Priority")
+            due_date = await get_field_value(page, "DueDate", "Due Date")
+            revenue = await get_field_value(page, "Revenue", "Revenue")
+            print("Current Business Parameters:")
+            print(f"Customer Priority: {customer_priority}")
+            print(f"Due Date: {due_date}")
+            print(f"Revenue: {revenue}")
+            logger.info("Business parameters retrieved successfully")
+
+            print("Navigating to File tab and Scenario Master...")
+            await asyncio.sleep(3)
+            await click_menu_item(page, "File")
+            await asyncio.sleep(1)
+            await click_menu_item(page, "Scenario Master")
+            await page.wait_for_load_state('networkidle')
+            await asyncio.sleep(2)  # Additional wait for page to load
+            print("   ✓ Navigated to Scenario Master")
+            
+            # Step 10: Create a new Scenario
+            print("Creating a new Scenario...")
+
+            max_id = get_max_scenario_id(page)
+            new_scenario_id = max_id + 1
+            print("New Scenario Id =", new_scenario_id)
+            logging.info(f"Retrieved max ScenarioId from grid: {max_id}")
+            today_date = _today_mm_dd()
+            new_scenario_name = f"{today_date}-Unconst-{customer_priority}-{due_date}-{revenue}"
+            print(f"New Scenario Name: {new_scenario_name}")
+            logging.info(f"Generated new scenario name: {new_scenario_name}")
+
+            # Click "Add" Buttion to create new scenario
+            # page.locator("#div_ScenarioMaster .pv-dgd-tb-addbutton").click()
+            await page.locator("#div_ScenarioMaster .pv-dgd-titlediv .pv-dgd-toolbar .pv-dgd-tb-addbutton").click()
+            # Fill in Add Window
+            await page.locator('input[data-datafieldname="ScenarioId"]').fill(str(new_scenario_id))
+            await page.locator('input[data-datafieldname="ScenarioName"]').fill(str(new_scenario_name))
+    
+            add_btn = await page.locator('.ui-dialog-buttonpane .ui-dialog-buttonset button:has-text("Add")')
+            add_btn.wait_for(state="visible")
+            add_btn.click(force=True)
+
+
             # The logic here refers to 4_create_new_scenario.py
-            return f"Scenario '{scenario_name}' created."
+            return f"Scenario '{new_scenario_name}' created."
         finally:
             await browser.close()
 
